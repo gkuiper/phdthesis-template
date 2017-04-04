@@ -421,6 +421,11 @@
 
 \RequirePackage{tikz,pgfplots,pgfplotstable,tikzcontour}
 \usetikzlibrary{positioning,plotmarks,patterns,petri,fit,arrows,shadows,calc,shapes,matrix}
+\usetikzlibrary{external}
+\tikzexternalize[prefix=figures/build/, 
+				figure list=true, 
+				up to date check=md5,  
+				mode=convert with system call]% activate!
 \ifdigital
 	\usepgfplotslibrary{clickable}
 	\pgfplotsset{
