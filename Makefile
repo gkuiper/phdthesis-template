@@ -228,7 +228,7 @@ zon-maan:
 	fi
 # check LaTeX packages
 	@$(MAKE) --no-print-directory texenv
-	@$(call checkcmd,dutch hyphenation,grep '^dutch\>' `fmtutil --showhyphen latex`,Try installing package texlive-lang-dutch or hyphen-dutch via TeXLive.)
+	@$(call checkcmd,dutch hyphenation, kpsewhich dutch.ldf,Try installing package texlive-lang-dutch or hyphen-dutch via TeXLive.)
 	@$(foreach c,$(LATEX_PKGS),$(call latexpkg,$(c),Try installing it via TeXLive.)$(NEWLINE))
 	@$(call latexpkg,luximono,Try: make luximono)
 	@$(call latexpkg,MinionPro,Try: make fonts)
