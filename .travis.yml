@@ -1,0 +1,13 @@
+sudo: required
+
+language: ruby
+
+services:
+  - docker
+
+cache:
+  directories:
+  - texmf
+
+script:
+  - docker run -it -v $(pwd)/thesis:/data guusk/docker-latex-thesis:2015 bash -c "test -f texmf/ls-R && make all || make fonts acrotex" 
