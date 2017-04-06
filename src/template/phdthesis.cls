@@ -186,7 +186,7 @@
 \RequirePackage[utf8x]{inputenc}  	% Typing accented characters explicitly
 \RequirePackage{xkeyval}          	% Pass options to commands
 \RequirePackage[table]{xcolor}
-\RequirePackage{colortbl,booktabs,multicol,longtable,collcell,ctable,multirow}
+\RequirePackage{colortbl,booktabs,multicol,longtable,collcell,multirow}
 \RequirePackage{url,color,calc,graphicx,ccicons,rotating}
 \RequirePackage{ifthen,ragged2e,textcase,environ,lipsum,ifempty,xth}
 \RequirePackage{pdfpages}
@@ -299,7 +299,7 @@
 \PassOptionsToPackage{pagebackref}{hyperref}
 
 \ifpress
-	\PassOptionsToPackage{x}{mypdfx}
+	%\PassOptionsToPackage{x}{mypdfx}
 	\PassOptionsToPackage{
 		pdfdisplaydoctitle=true,
 		pdfpagelayout=TwoColumnRight,
@@ -420,12 +420,14 @@
 %%
 
 \RequirePackage{tikz,pgfplots,pgfplotstable,tikzcontour}
+\RequirePackage{ctable} %load after tikz
 \usetikzlibrary{positioning,plotmarks,patterns,petri,fit,arrows,shadows,calc,shapes,matrix}
 \usetikzlibrary{external}
-\tikzexternalize[prefix=figures/build/, 
-				figure list=true, 
-				up to date check=md5,  
-				mode=convert with system call]% activate!
+%\tikzexternalize[prefix=figures/build/, 
+%				figure list=true, 
+%				up to date check=md5,  
+%                only named=true,
+%				mode=convert with system call]% activate!
 \ifdigital
 	\usepgfplotslibrary{clickable}
 	\pgfplotsset{

@@ -101,7 +101,7 @@
 
 \RequirePackage{ean13isbn}
 
-\RequirePackage[x]{mypdfx}
+\RequirePackage{mypdfx}
 \RequirePackage{hyperref}
 \hypersetup{pdfpagelayout=SinglePage,pdfstartview=Fit}
 \expandafter\global\expandafter\pdfpageattr\expandafter{\the\pdfpageattr /Group <</S /Transparency /I true /CS /DeviceRGB>>}
