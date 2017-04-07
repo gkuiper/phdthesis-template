@@ -8,6 +8,8 @@ services:
 cache:
   directories:
   - texmf
+before_cache:
+  - git ls-files texmf/ | xargs rm
 
 script:
-  - docker run -it -v $(pwd):/data guusk/docker-latex-thesis:2015 bash -c "test -f texmf/ls-R && make all || make fonts acrotex" 
+  - docker run -it -v $(pwd):/data guusk/docker-latex-thesis:2015 bash -c "test -f texmf/ls-R && make all || make fonts acrotex"
