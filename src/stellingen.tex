@@ -25,7 +25,17 @@
 \usepackage[dutch]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{datetime,enumitem,xcolor,MinionPro,tikz}
+\usepackage{enumitem,xcolor,MinionPro,tikz}
+
+\def\gettexliveversion#1(#2 #3 #4#5#6#7#8)#9\relax{#4#5#6#7}
+\edef\texliveversion{\expandafter\gettexliveversion\pdftexbanner\relax}
+
+\ifnum\texliveversion<2014
+    \usepackage{datetime}
+\else
+    \usepackage[dutch,showdow]{datetime2}
+    \DTMusemodule{dutch}{dutch}
+\fi
 \usepackage[protrusion=true,expansion=true,stretch=10,shrink=10,babel]{microtype}
 \usepackage{ragged2e}
 \usepackage{hyperref}
@@ -67,7 +77,11 @@
 		\end{Spacing}%
 	}\\[2ex]%
 	door \theauthor,\\%
+\ifnum\texliveversion<2014
 	te verdedigen op \displaydate{thesis}\\%
+\else
+    te verdedigen op \DTMweekdayname{\DTMfetchyear{thesis}} \DTMfetchyear{thesis} \DTMusedate{thesis}\\%
+\fi
 	\vspace{4ex plus 2ex}
 }
 

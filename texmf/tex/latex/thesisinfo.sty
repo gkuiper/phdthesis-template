@@ -66,6 +66,13 @@
 		\def\fullthesisdate{\protect\displaydate{thesis}}
 		\def\thesismonthname{\expandafter\monthname\expandafter[\thesismonth]}
 	}{}
+	\@ifpackageloaded{datetime2}{
+        %\DTMsavedate{thesis}{\string\thesisdate{}}
+        \DTMsavenoparsedate{thesis}{\thesisday}{\thesismonth}{\thesisyear}{-1}
+        \DTMmakeglobal{thesis}
+        \def\fullthesisdate{\DTMweekdayname{\DTMfetchday{thesis}} \DTMusedate{thesis}}
+        \def\thesismonthname{\DTMMonthname{\DTMfetchmonth{thesis}}}
+	}{}
 }
 
 {\let~\space\let\ \space\xdef\thesisauthorplain{\thesisauthor}}
