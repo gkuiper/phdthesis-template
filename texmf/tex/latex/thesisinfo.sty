@@ -68,7 +68,7 @@
 	}{}
 	\@ifpackageloaded{datetime2}{
         %\DTMsavedate{thesis}{\string\thesisdate{}}
-        \DTMsavenoparsedate{thesis}{\thesisday}{\thesismonth}{\thesisyear}{-1}
+        \DTMsavenoparsedate{thesis}{\thesisyear}{\thesismonth}{\thesisday}{-1}
         \DTMmakeglobal{thesis}
         \def\fullthesisdate{\DTMweekdayname{\DTMfetchday{thesis}} \DTMusedate{thesis}}
         \def\thesismonthname{\DTMMonthname{\DTMfetchmonth{thesis}}}
