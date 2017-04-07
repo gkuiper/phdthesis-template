@@ -204,7 +204,8 @@
 \ifsinglechap\renewcommand{\listoftodos}[1][]{}\fi
 \renewcommand{\todo}[2][]{\@bsphack\@todo[#1]{#2}\@esphack\xspace}
 
-\RequirePackage{datetime}
+%TODO: update to datetime2
+\RequirePackage{datetime}% load after babel
 \RequirePackage{fmtcount}% not part of datetime anymore
 \def\thedate\@date
 
