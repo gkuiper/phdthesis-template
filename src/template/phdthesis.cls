@@ -205,6 +205,7 @@
 \renewcommand{\todo}[2][]{\@bsphack\@todo[#1]{#2}\@esphack\xspace}
 
 \RequirePackage{datetime}
+\RequirePackage{fmtcount}% not part of datetime anymore
 \def\thedate\@date
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
