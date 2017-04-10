@@ -205,8 +205,16 @@
 \renewcommand{\todo}[2][]{\@bsphack\@todo[#1]{#2}\@esphack\xspace}
 
 %TODO: update to datetime2
-\RequirePackage{datetime}% load after babel
-\RequirePackage{fmtcount}% not part of datetime anymore
+\def\gettexliveversion#1(#2 #3 #4#5#6#7#8)#9\relax{#4#5#6#7}
+\edef\texliveversion{\expandafter\gettexliveversion\pdftexbanner\relax}
+
+\ifnum\texliveversion<2014
+    \usepackage{datetime}
+    \usepackage{fmtcount}% not part of datetime anymore
+\else
+    \usepackage[dutch,showdow]{datetime2}
+    \DTMusemodule{dutch}{dutch}
+\fi
 \def\thedate\@date
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

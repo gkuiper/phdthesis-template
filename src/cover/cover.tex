@@ -100,7 +100,11 @@
 			{\nohyphenation\Centering\thesissubtitle}@{\large\itshape};
 		\covertext[invitation text] (invitation date) at ($(invitation subtitle.south)+(0,-2.5mm)$) {\invtextwidth}%
 			{\nohyphenation\Centering%
+\ifnum\texliveversion<2014
 				op \mbox{\displaydate{thesis}} om 14.30~uur %
+\else
+				op \mbox{\fullthesisdate} om 14.30~uur %
+\fi
 				in de Berkhoff~zaal van het gebouw de~Waaier van de Universiteit~Twente.
 				Aansluitend is er een receptie.%
 			}@\large;

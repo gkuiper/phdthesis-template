@@ -88,7 +88,17 @@
 \RequirePackage[paperwidth=\paperwidth,paperheight=\paperheight]{geometry}
 
 \RequirePackage[english,dutch]{babel}
-\RequirePackage{datetime}
+
+\def\gettexliveversion#1(#2 #3 #4#5#6#7#8)#9\relax{#4#5#6#7}
+\edef\texliveversion{\expandafter\gettexliveversion\pdftexbanner\relax}
+\ifnum\texliveversion<2014
+    \usepackage{datetime}
+    \usepackage{fmtcount}% not part of datetime anymore
+\else
+    \usepackage[dutch,showdow]{datetime2}
+    \DTMusemodule{dutch}{dutch}
+\fi
+
 \RequirePackage[utf8x]{inputenc}
 \RequirePackage[protrusion=true,expansion=true,stretch=10,shrink=10,babel,tracking=true]{microtype}
 \RequirePackage[T1]{fontenc}

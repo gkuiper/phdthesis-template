@@ -67,10 +67,12 @@
 		\def\thesismonthname{\expandafter\monthname\expandafter[\thesismonth]}
 	}{}
 	\@ifpackageloaded{datetime2}{
-        %\DTMsavedate{thesis}{\string\thesisdate{}}
-        \DTMsavenoparsedate{thesis}{\thesisyear}{\thesismonth}{\thesisday}{-1}
+        \DTMsavedate{thesis}{\thesisdate}
+        \DTMcomputedayofweekindex{2016-02-10}{\dowindex}
+        %\DTMsavenoparsedate{thesis}{\thesisyear}{\thesismonth}{\thesisday}{\dowindex}
         \DTMmakeglobal{thesis}
-        \def\fullthesisdate{\DTMweekdayname{\DTMfetchday{thesis}} \DTMusedate{thesis}}
+        % Currencly datatime2-dutch does not support dayoftheweek / showdow so calculate it manually
+        \def\fullthesisdate{\DTMweekdayname{\dowindex} \DTMusedate{thesis}}
         \def\thesismonthname{\DTMMonthname{\DTMfetchmonth{thesis}}}
 	}{}
 }
