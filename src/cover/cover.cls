@@ -21,7 +21,6 @@
 \ProcessOptions
 \ProcessKeyvalOptions*
 
-\PassOptionsToPackage{rgb}{xcolor}
 \LoadClass{article}
 
 \RequirePackage[file=../info]{thesisinfo}
@@ -84,6 +83,8 @@
 
 \pagestyle{empty}
 
+\RequirePackage[x]{mypdfx}
+
 \RequirePackage{tikz,ragged2e,ifempty,printlen,xargs,environ}
 \RequirePackage[paperwidth=\paperwidth,paperheight=\paperheight]{geometry}
 
@@ -101,8 +102,6 @@
 
 \RequirePackage{ean13isbn}
 
-\RequirePackage{mypdfx}
-\RequirePackage{hyperref}
 \hypersetup{pdfpagelayout=SinglePage,pdfstartview=Fit}
 \expandafter\global\expandafter\pdfpageattr\expandafter{\the\pdfpageattr /Group <</S /Transparency /I true /CS /DeviceRGB>>}
 

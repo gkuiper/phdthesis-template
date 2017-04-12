@@ -183,9 +183,12 @@
 \RequirePackage{etex}             	% Extended register set
 \RequirePackage{etoolbox}
 \RequirePackage[dutch,english]{babel}
+\RequirePackage{mypdfx,everyshi}
+% Load inputenc after pdfx (mypdfx): http://tex.stackexchange.com/questions/347845/issues-with-undefinedinputenc
 \RequirePackage[utf8x]{inputenc}  	% Typing accented characters explicitly
 \RequirePackage{xkeyval}          	% Pass options to commands
-\RequirePackage[table]{xcolor}
+%\RequirePackage[table]{xcolor}
+%\PassOptionsToPackage{table}{xcolor}
 \RequirePackage{colortbl,booktabs,multicol,longtable,collcell,multirow}
 \RequirePackage{url,color,calc,graphicx,ccicons,rotating}
 \RequirePackage{ifthen,ragged2e,textcase,environ,lipsum,ifempty,xth}
@@ -305,7 +308,7 @@
 \PassOptionsToPackage{pagebackref}{hyperref}
 
 \ifpress
-	%\PassOptionsToPackage{x}{mypdfx}
+	\PassOptionsToPackage{x}{mypdfx}
 	\PassOptionsToPackage{
 		pdfdisplaydoctitle=true,
 		pdfpagelayout=TwoColumnRight,
@@ -349,7 +352,6 @@
 	\fi
 \fi
 
-\RequirePackage{mypdfx,everyshi}
 \ifdiscussion\AfterPreamble{\EveryShipout{\pdfsetpagebox{TrimBox}{\the\trimedge}{\the\trimtop}{\the\paperwidth}{\the\paperheight}}}\fi
 \RequirePackage{refcount}
 \RequirePackage{hyperref}
