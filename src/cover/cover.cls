@@ -91,9 +91,7 @@
 
 \RequirePackage[english,dutch]{babel}
 \RequirePackage{datetime}
-\RequirePackage[utf8x]{inputenc}
 \RequirePackage[protrusion=true,expansion=true,stretch=10,shrink=10,babel,tracking=true]{microtype}
-\RequirePackage[T1]{fontenc}
 \RequirePackage{stmaryrd,textcomp}\def\mathds{\mathbb}%,dsfont}
 \RequirePackage{MyriadPro}
 \RequirePackage[fullfamily,textosf,mathlf,minionint,footnotefigures]{MinionPro}
