@@ -8,8 +8,6 @@
 
 %\RequirePackage{ifempty}
 \RequirePackage{etoolbox,plainstring}
-%\RequirePackage{datetime}
-\RequirePackage{fmtcount}% not part of datetime anymore
 
 \input{\thesisinfo@file}
 \newcommand{\subtitle}[1]{\def\thesubtitle{#1}}
@@ -24,9 +22,9 @@
 	\gdef\thefullpdftitle{\thetitleprefix\thesistitle}
 	\gdef\thexmptitle{\thetitleprefix\thesistitle}
 }{
-	\def\thefulltitle{\thesistitle\ --- \textit{\thesissubtitle}}
-	\gdef\thefullpdftitle{\thetitleprefix\thesistitle\ -{}- \thesissubtitle}
-	\gdef\thexmptitle{\thetitleprefix\thesistitle\ -{}- \thesissubtitle}
+	\def\thefulltitle{\thesistitle\space --- \textit{\thesissubtitle}}
+	\gdef\thefullpdftitle{\thetitleprefix\thesistitle\space -{}- \thesissubtitle}
+	\gdef\thexmptitle{\thetitleprefix\thesistitle\space -- \thesissubtitle}
 }
 
 \def\stripleadingzero#1{\ifnumequal{#1}{0}{}{#1}}
@@ -93,17 +91,16 @@
 \RequirePackage{newfile}
 \newoutputstream{xmpdata}
 \newcommand{\writexmpdata}{
-	\ifdef{\pdfstringdef}{}{\PackageError{thesisinfo}{Hyperref is required to generate \jobname.xmpdata}{}}
-	\begin{plainstring}
+	%\begin{plainstring}
 		\openoutputfile{\jobname.xmpdata}{xmpdata}
-		\pdfstringdef\xmpstring{\thexmptitle}		\addtostream{xmpdata}{\string\Title{\xmpstring}}
-		\pdfstringdef\xmpstring{\thesisauthorplain}	\addtostream{xmpdata}{\string\Author{\xmpstring}}
-													\addtostream{xmpdata}{\string\Org{University of Twente}}
-		\pdfstringdef\xmpstring{\thesisDOI}			\addtostream{xmpdata}{\string\Doi{\xmpstring}}
-		\pdfstringdef\xmpstring{\thesisdate}		\addtostream{xmpdata}{\string\CoverDate{\xmpstring}}
-		\pdfstringdef\xmpstring{\thesisdate}		\addtostream{xmpdata}{\string\CoverDisplayDate{\xmpstring}}
+		\addtostream{xmpdata}{\string\Title{\thexmptitle}}
+		\addtostream{xmpdata}{\string\Author{\thesisauthorplain}}
+		\addtostream{xmpdata}{\string\Org{University of Twente}}
+		\addtostream{xmpdata}{\string\Doi{\thesisDOI}}
+		\addtostream{xmpdata}{\string\CoverDate{\thesisdate}}
+		\addtostream{xmpdata}{\string\CoverDisplayDate{\thesisdate}}
 		\closeoutputstream{xmpdata}
-	\end{plainstring}
+	%\end{plainstring}
 }
 
 \AtEndPreamble{\writexmpdata}
