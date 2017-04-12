@@ -21,6 +21,7 @@
 \ProcessOptions
 \ProcessKeyvalOptions*
 
+\PassOptionsToPackage{rgb}{xcolor}
 \LoadClass{article}
 
 \RequirePackage[file=../info]{thesisinfo}
