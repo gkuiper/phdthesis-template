@@ -366,9 +366,9 @@ release(X);
 acquire(Y); // exclusive access
 Y=1;
 release(Y);
-acquire$\textsubscript{ro}$(Y); // non-exclusive
+acquire$\subscript{ro}$(Y); // non-exclusive
 a=Y;
-release$\textsubscript{ro}$(Y);
+release$\subscript{ro}$(Y);
 \end{lstcode}%
 \end{parcode}%
 \end{parcol}%
@@ -380,9 +380,9 @@ Y=2;        //  with acquire(X)
 release(Y);
 //b=X; // not allowed outside of
        //  acquire-release pair
-acquire$\textsubscript{ro}$(X);
+acquire$\subscript{ro}$(X);
 c=X;
-release$\textsubscript{ro}$(X);
+release$\subscript{ro}$(X);
 \end{lstcode}%
 \end{parcode}%
 \end{parcol}%
