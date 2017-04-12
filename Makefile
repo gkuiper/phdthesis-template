@@ -219,7 +219,10 @@ zon-maan:
 	if [[ -z "$$v" ]]; then v=-1; fi; \
 	echo -n "$$v   "; \
 	if [[ "$$v" -eq -1 ]]; then echo "unparseable output of \`tex --version', FIXME"; false; \
-	elif [[ "$$v" -gt 2013 ]]; then echo "newer than I expected..."; \
+	elif [[ "$$v" -gt 2016 ]]; then echo "newer than I expected..."; \
+	elif [[ "$$v" -eq 2016 ]]; then echo "(ok)"; \
+	elif [[ "$$v" -eq 2015 ]]; then echo "(ok)"; \
+	elif [[ "$$v" -eq 2014 ]]; then echo "(ok)"; \
 	elif [[ "$$v" -eq 2013 ]]; then echo "(ok)"; \
 	elif [[ "$$v" -eq 2012 ]]; then echo "(ok, although 2013 fixed some bugs)"; \
 	elif [[ "$$v" -eq 2011 ]]; then echo "quite old, consider updating..."; \
