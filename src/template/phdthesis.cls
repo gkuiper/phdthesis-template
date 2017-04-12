@@ -206,7 +206,11 @@
 
 %TODO: update to datetime2
 \RequirePackage{datetime}% load after babel
-\RequirePackage{fmtcount}% not part of datetime anymore
+%\RequirePackage{fmtcount}% not part of datetime anymore
+%\fmtcountsetoptions{fmtord=level} % error for raise e.g. superscript
+%\renewcommand*{\textsuperscript}[1]{\ensuremath{^{\text{#1}}}}
+\renewcommand{\fmtord}[1]{\superscript{#1}}
+%\providecommand{\superscript}[1]{\ensuremath{^{\text{#1}}}}
 \def\thedate\@date
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
