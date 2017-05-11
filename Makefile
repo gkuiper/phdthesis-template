@@ -92,14 +92,12 @@ preview: preview-publication
 preview-publication: cover
 
 preview-%: thesis-%.tex stellingen.pdf clearaux texenv
-	$(MAKE) -C src/template
 	latexmk -pvc thesis-$*
 
 .PHONY: $(THESIS_VARIANTS) thesis
 thesis: $(THESIS_VARIANTS)
 publication: cover
 $(THESIS_VARIANTS): thesis-$$@.tex stellingen.pdf clearaux texenv
-	$(MAKE) -C src/template
 	@latexmk $<
 	@$(MAKE) --no-print-directory analyze 'PDF=thesis-$@.pdf'
 	@$($@_postaction)
@@ -145,7 +143,6 @@ clearaux:
 GARBAGE += $(addsuffix /*.aux,. src/front src/body src/back)
 
 only-%: discussion | src/body/%.tex
-	$(MAKE) -C src/template
 	@{ \
 		echo '\includeonly{src/body/$*}\PassOptionsToClass{discussion,singlechap,digital}{src/template/phdthesis}'; \
 		echo '\makeatletter\expandafter\xdef\csname thesis-$<@idxfile\endcsname{\@nameuse{\jobname @idxfile}}\makeatother'; \
@@ -413,7 +410,6 @@ final: | thesis-publication.pdf thesis-press.pdf thesis-abstractonly.pdf
 
 clean:
 	-$(MAKE) -C src/cover dist-clean
-	-$(MAKE) -C src/template clean
 	-rm -rf $(GARBAGE)
 
 dist-clean: clean
