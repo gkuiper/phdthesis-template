@@ -51,10 +51,10 @@
 
 	Met vriendelijke groet,
 
-	Jochem Rutgers \strut\\
+	Guus Kuiper \strut\\
 	\begin{tabular}{@{}ll}
-	\strut tel.\@ & \ifstrempty{#1}{0}{+31\,}6\,1292\,5775 \\
-	e-mail & \href{mailto:j.h.rutgers@utwente.nl}{j.h.rutgers@utwente.nl} \\
+	\strut tel.\@ & \ifstrempty{#1}{0}{+31\,}53\,489\,4755 \\
+	e-mail & \href{mailto:g.kuiper@utwente.nl}{g.kuiper@utwente.nl} \\
 	\end{tabular}
 
 
@@ -74,10 +74,10 @@
 
 	Met vriendelijke groet,
 
-	Jochem Rutgers \strut\\
+	Guus Kuiper \strut\\
 	\begin{tabular}{@{}ll}
-	\strut tel.\@ & \ifstrempty{#1}{0}{+31\,}6\,1292\,5775 \\
-	e-mail & \href{mailto:j.h.rutgers@utwente.nl}{j.h.rutgers@utwente.nl} \\
+	\strut tel.\@ & \ifstrempty{#1}{0}{+31\,}53\,489\,4755 \\
+	e-mail & \href{mailto:g.kuiper@utwente.nl}{g.kuiper@utwente.nl} \\
 	\end{tabular}
 
 
@@ -85,10 +85,13 @@
 }
 
 \newcommand{\letterctit}{%
-	Park de Kotten 102 \\
-	7522 EE {} ENSCHEDE \\
-	tel.\@: 06\,1292\,5775 \\
-	e-mail: \href{mailto:j.h.rutgers@alumnus.utwente.nl}{j.h.rutgers@alumnus.utwente.nl}
+    University of Twente \\
+    Faculty of Electrical Engineering, Mathematics \& Computer Science \\
+    Zilverling (building no. 11), room 5025 \\
+    Hallenweg 19 \\
+	7522 NH {} ENSCHEDE \\
+	tel.\@: 053\,489\,4755 \\
+	e-mail: \href{mailto:g.kuiper@alumnus.utwente.nl}{g.kuiper@alumnus.utwente.nl}
 
 	Universiteit Twente \\
 	Centre for Telematics and Information Technology (CTIT) \\
@@ -100,12 +103,12 @@
 	Geachte heer/mevrouw,
 
 	Bij deze stuur ik u een exemplaar van mijn proefschrift.
-	Zoals ook in de colofon is te vinden, is het CTIT-thesisnummer 14-292.
+    Zoals ook in de colofon is te vinden, is het CTIT-thesisnummer \thesisCTITnr{}.
 	De verdediging is gepland op \thedate.
 
 	Met vriendelijke groet,
 
-	Jochem Rutgers
+	Guus Kuiper
 
 
 	\clearpage%
@@ -118,39 +121,14 @@
 
 	\textbf{\thefulltitle}
 
-	Common many-core processors contain tens of cores and distributed memory.
-	Compared to a multicore system, which only has a few tightly coupled cores sharing a single bus and memory, several complex problems arise.
-	Notably, many cores require many parallel tasks to fully utilize the cores, and communication happens in a distributed and decentralized way.
-	Therefore, programming such a processor requires the application to exhibit concurrency.
-	In contrast to a single-core application, a concurrent application has to deal with memory state changes with an observable (non-deterministic) intermediate state.
-	The complexity introduced by these problems makes programming a many-core system with a single-core-based programming approach notoriously hard.
-
-	The central concept of this thesis is that abstractions, which are related to (many-core) programming, are structured in a single platform model.
-	A platform is a layered view of the hardware, a memory model, a concurrency model, a model of computation, and compile-time and run-time tooling.
-	Then, a programming model is a specific view on this platform, which is used by a programmer.
-	In this view, some details can be hidden from the programmer's perspective, some details cannot.
-	For example, an operating system presents an infinite number of parallel virtual execution units to the application whilst it hides details regarding scheduling.
-	On the other hand, a programmer usually has balance workload among threads by hand.
-
-	This thesis presents modifications to different abstraction layers of a many-core architecture, in order to make the system as a whole more efficient, and to reduce the programming complexity.
-	These modifications influence other abstractions in the platform, and especially the programming model.
-	Therefore, this thesis applies co-design on all models.
-	Notably, co-design of the memory model, concurrency model, and model of computation is required for a scalable implementation of lambda-calculus.
-	Moreover, only the combination of requirements of the many-core hardware from one side and the concurrency model from the other leads to a memory model abstraction.
-	Hence, this thesis shows that to cope with the current trends in many-core architectures from a programming perspective, it is essential and feasible to inspect and adapt all abstractions collectively.
-
+    Summary of the thesis.
+    
 	}\selectfont\clearpage%
 }
 
 \begin{document}
-\letterdraft{heer Van de Pol}
-\letterdraft{heer Broenink}
-\letterdraft{heer Corporaal}
-\letterdraft{heer Bertels}
-\letterdraft[nee]{heer Stroobandt}
-\letterfinal{heer Corporaal, beste Henk}
-\letterfinal{heer Bertels}
-\letterfinal[nee]{heer Stroobandt}
+\letterdraft{heer \ldots}
+\letterdraft[nee]{heer \ldots}
 \letterctit
 \summarylib
 \end{document}
