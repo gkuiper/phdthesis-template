@@ -47,46 +47,8 @@ THESIS_VARIANTS = abstractonly discussion press publication
 
 .PHONY: all
 
-ifeq ($(shell [ -e figures/art ] && echo art ),art)
-# Jochem's art depends on the cover, which in turn depends on the number of pages of the resulting PDF file.
-# This adds some strange dependencies, which require special handling.
-# Otherwise, the default all target will do.
-
-.PHONY: perfect art-placeholder art
-perfect:
-# init
-	@echo 'Starting perfect thesis build sequence...'
-	@$(MAKE) --no-print-directory zon-maan
-	@$(MAKE) --no-print-directory clean
-	@$(MAKE) --no-print-directory stellingen abstractonly
-# build (placeholder) art for press
-	@$(MAKE) --no-print-directory art-placeholder press
-# rebuild art, based on number of pages of press (might shift cover)
-	@$(MAKE) --no-print-directory -C figures/art dist-clean
-	@$(MAKE) --no-print-directory force-cover art
-# (re)build final targets
-	@$(MAKE) --no-print-directory publication publication-pdf press discussion letter wordlist final
-	@if $(MAKE) --no-print-directory -C figures/art test-blender; then	\
-		echo -e "\nDone building perfect thesis";						\
-	else																\
-		echo -e "\nDone building thesis WITHOUT blender art!";			\
-	fi
-	@$(BUILD_TIME)
-
-all: zon-maan stellingen abstractonly art press cover publication publication-pdf discussion wordlist final
-	@$(BUILD_TIME)
-
-art-placeholder:
-	$(MAKE) -C figures/art placeholder
-
-art: texenv
-	$(MAKE) -C figures/art ignore-no-blender
-
-discussion publication: art
-else
 all: zon-maan stellingen abstractonly press cover publication publication-pdf discussion letter wordlist
 	@$(BUILD_TIME)
-endif
 
 preview: preview-publication
 preview-publication: cover
@@ -413,6 +375,5 @@ clean:
 	-rm -rf $(GARBAGE)
 
 dist-clean: clean
-	-$(MAKE) -C figures/art dist-clean
 	-rm -rf $(GARBAGE_DIST)
 
