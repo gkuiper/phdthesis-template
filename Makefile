@@ -210,14 +210,14 @@ texenv:
 conv-xkv:
 	mkdir -p texmf/tex/latex
 	cd texmf/tex/latex && wget http://mirrors.ctan.org/macros/latex/contrib/conv-xkv.zip
-	cd texmf/tex/latex && unzip conv-xkv.zip
+	cd texmf/tex/latex && unzip -u conv-xkv.zip
 	cd texmf/tex/latex/conv-xkv && latex conv-xkv.ins
 	rm texmf/tex/latex/conv-xkv.zip
 	
 acrotex: conv-xkv
 	mkdir -p texmf/tex/latex
 	cd texmf/tex/latex && wget http://mirrors.ctan.org/macros/latex/contrib/acrotex.zip
-	cd texmf/tex/latex && unzip acrotex.zip
+	cd texmf/tex/latex && unzip -u acrotex.zip
 	cd texmf/tex/latex/acrotex && latex acrotex.ins
 	rm texmf/tex/latex/acrotex.zip
 
