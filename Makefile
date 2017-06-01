@@ -253,7 +253,7 @@ getnonfreefonts:
 
 luximono-install:
 	@which getnonfreefonts > /dev/null || $(MAKE) --no-print-directory getnonfreefonts
-	$(TEXENV) getnonfreefonts luximono
+	$(TEXENV) getnonfreefonts --user luximono
 
 luximono:
 	@$(TEXENV) kpsewhich luximono.sty > /dev/null || $(MAKE) --no-print-directory luximono-install
