@@ -1,0 +1,46 @@
+\chapter{Howto}
+\label{c:howto}
+
+\begin{abstract}%
+    How to use this thesis template
+\end{abstract}
+
+\section{Subfigures}
+\label{s:howto:subfigures}
+Either use the macro \texttt{\\subbottom} from memoir, or 
+
+\begin{figure}
+\begin{subfigure}[b]{.49\linewidth} 
+    \centering
+    \fbox{ TEST }
+\caption{First figure}
+\label{fig:intro:test:1}
+\end{subfigure}
+\begin{subfigure}[b]{.49\linewidth} 
+    \centering
+    \fbox{ TEST }
+\caption{Second figure}
+\label{fig:intro:test:2}
+\end{subfigure}
+\caption{Test image}
+\label{fig:intro:test}
+\end{figure}
+
+\begin{lstlisting}[language=tex]
+\begin{figure}
+\begin{subfigure}[b]{.49\linewidth} 
+    \centering
+    \fbox{ TEST }
+\caption{First figure}
+\label{fig:intro:test:1}
+\end{subfigure}
+\begin{subfigure}[b]{.49\linewidth} 
+    \centering
+    \fbox{ TEST }
+\caption{Second figure}
+\label{fig:intro:test:2}
+\end{subfigure}
+\caption{Test image}
+\label{fig:intro:test}
+\end{figure}
+\end{lstlisting}

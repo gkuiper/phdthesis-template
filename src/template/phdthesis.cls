@@ -197,6 +197,7 @@
 %\RequirePackage{amsfonts,amssymb,stmaryrd,amsmath}
 \RequirePackage{varioref}% don't use without cleveref
 \RequirePackage{roomforthought}
+\RequirePackage{subcaption}
 
 \ifdiscussion
 	\RequirePackage[colorinlistoftodos,textsize=footnotesize]{todonotes}
