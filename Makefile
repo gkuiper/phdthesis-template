@@ -245,7 +245,7 @@ font-%: | texmf/FontPro
 	$(TEXENV) cd texmf && updmap --enable Map=$*.map
 	@$(BUILD_TIME)
 
-.PHONY: getnonfreefonts luximono luximono-install
+.PHONY: getnonfreefonts luximono luximono-install garamond garamond-install
 getnonfreefonts:
 	wget -O /tmp/install-getnonfreefonts http://tug.org/fonts/getnonfreefonts/install-getnonfreefonts
 	@chmod a+x /tmp/install-getnonfreefonts
