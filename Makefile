@@ -194,8 +194,8 @@ zon-maan:
 	@$(foreach c,$(LATEX_PKGS),$(call latexpkg,$(c),Try installing it via TeXLive.)$(NEWLINE))
 	@$(call latexpkg,luximono,Try: make luximono)
 	@$(call latexpkg,garamondx,Try: make garamond)
-	@$(call latexpkg,MinionPro,Try: make fonts)
-	@$(call latexpkg,MyriadPro,Try: make fonts)
+#	@$(call latexpkg,MinionPro,Try: make fonts)
+#	@$(call latexpkg,MyriadPro,Try: make fonts)
 	@$(call latexpkg,insdljs,Try: make acrotex)
 	@[ $(words $(USED_PKGS)) -gt 10 ] || { echo 'Only $(words $(USED_PKGS)) packages used, expected more.'; false; }
 	@$(foreach c,$(USED_PKGS),$(call latexpkg,$(c),Try installing it via TeXLive.)$(NEWLINE))
