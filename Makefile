@@ -267,7 +267,9 @@ garamond:
 	@$(TEXENV) kpsewhich mathdesign.sty > /dev/null || $(MAKE) --no-print-directory garamond-install
 
 .PHONY: fonts
-fonts: luximono garamond #font-MinionPro font-MyriadPro
+fonts: luximono garamond 
+
+#fonts: luximono garamond font-MinionPro font-MyriadPro
 
 GARBAGE_DIST += texmf/FontPro texmf/tex/latex/MinionPro texmf/tex/latex/MyriadPro texmf/tex/latex/luxi texmf/tex/latex/ugm /texmf/tex/latex/garamondx
 
