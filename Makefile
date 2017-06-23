@@ -193,6 +193,7 @@ zon-maan:
 	@$(call checkcmd,dutch hyphenation, kpsewhich dutch.ldf,Try installing package texlive-lang-dutch or hyphen-dutch via TeXLive.)
 	@$(foreach c,$(LATEX_PKGS),$(call latexpkg,$(c),Try installing it via TeXLive.)$(NEWLINE))
 	@$(call latexpkg,luximono,Try: make luximono)
+	@$(call latexpkg,garamondx,Try: make garamond)
 	@$(call latexpkg,MinionPro,Try: make fonts)
 	@$(call latexpkg,MyriadPro,Try: make fonts)
 	@$(call latexpkg,insdljs,Try: make acrotex)
@@ -258,10 +259,17 @@ luximono-install:
 luximono:
 	@$(TEXENV) kpsewhich luximono.sty > /dev/null || $(MAKE) --no-print-directory luximono-install
 
-.PHONY: fonts
-fonts: luximono font-MinionPro font-MyriadPro
+garamond-install:
+	@which getnonfreefonts > /dev/null || $(MAKE) --no-print-directory getnonfreefonts
+	$(TEXENV) getnonfreefonts --user garamond garamondx
 
-GARBAGE_DIST += texmf/FontPro texmf/tex/latex/MinionPro texmf/tex/latex/MyriadPro texmf/tex/latex/luxi
+garamond:
+	@$(TEXENV) kpsewhich mathdesign.sty > /dev/null || $(MAKE) --no-print-directory garamond-install
+
+.PHONY: fonts
+fonts: luximono garamond font-MinionPro font-MyriadPro
+
+GARBAGE_DIST += texmf/FontPro texmf/tex/latex/MinionPro texmf/tex/latex/MyriadPro texmf/tex/latex/luxi texmf/tex/latex/ugm /texmf/tex/latex/garamondx
 
 
 ################################
