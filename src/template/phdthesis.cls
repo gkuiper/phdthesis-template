@@ -243,16 +243,17 @@
 \RequirePackage[protrusion=true,expansion=true,stretch=10,shrink=10,babel]{microtype}
 %\def\microtypesetup#1{}
 \RequirePackage[T1]{fontenc}
-% \RequirePackage{lmodern,stmaryrd,textcomp}\def\mathds{\mathbb}%,dsfont}
+\RequirePackage{lmodern,stmaryrd,textcomp}\def\mathds{\mathbb}%,dsfont}
 % \RequirePackage{MyriadPro}
 % \RequirePackage[fullfamily,textosf,mathlf,minionint,footnotefigures]{MinionPro}
 % \renewcommand\sfdefault{MyriadPro-LF}
 %\RequirePackage{tgcursor}% courier-like
-\RequirePackage[scaled=.84]{luximono}% another type writer font
-\RequirePackage[garamond]{mathdesign}
+%\RequirePackage[scaled=.84]{luximono}% another type writer font
 \PassOptionsToPackage{full}{textcomp}
-\RequirePackage{garamondx}
+\RequirePackage[garamond]{mathdesign}
+\RequirePackage[osf]{garamondx}
 \renewcommand*\copyright{\textcopyright}
+\renewcommand{\figureversion}[2][1]{}
 
 \let\oldnormalfont\normalfont
 \def\normalfont{\oldnormalfont\figureversion{text,prop}}

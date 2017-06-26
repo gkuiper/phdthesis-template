@@ -99,6 +99,7 @@
 \RequirePackage[garamond]{mathdesign}
 \PassOptionsToPackage{full}{textcomp}
 \RequirePackage{garamondx}
+\renewcommand{\figureversion}[2][1]{}
 \RequirePackage{tgcursor}% courier-like
 \def\nohyphenation{\hyphenpenalty=10000\exhyphenpenalty=10000}
 
