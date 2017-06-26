@@ -264,7 +264,7 @@ garamond-install:
 	$(TEXENV) getnonfreefonts --user garamond garamondx
 
 garamond:
-	@$(TEXENV) kpsewhich mathdesign.sty > /dev/null || $(MAKE) --no-print-directory garamond-install
+	@$(TEXENV) kpsewhich garamondx.sty > /dev/null || $(MAKE) --no-print-directory garamond-install
 
 .PHONY: fonts
 fonts: luximono garamond 
