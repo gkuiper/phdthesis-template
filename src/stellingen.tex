@@ -26,11 +26,14 @@
 %\usepackage[utf8]{inputenc}
 %\usepackage[T1]{fontenc}
 \usepackage{datetime,enumitem,xcolor,tikz}
-% \usepackage{MinionPro}
-\usepackage[garamond]{mathdesign}
-\usepackage[full]{textcomp}
-\usepackage{garamondx}
-\renewcommand{\figureversion}[2][1]{}
+\ifminionpro
+	\usepackage{MinionPro}
+\else
+	\usepackage[garamond]{mathdesign}
+	\usepackage[full]{textcomp}
+	\usepackage{garamondx}
+	\renewcommand{\figureversion}[2][1]{}
+\fi
 \usepackage[protrusion=true,expansion=true,stretch=10,shrink=10,babel]{microtype}
 \usepackage{ragged2e}
 \usepackage{hyperref}

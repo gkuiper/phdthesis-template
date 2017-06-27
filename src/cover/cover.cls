@@ -92,14 +92,17 @@
 \RequirePackage[english,dutch]{babel}
 \RequirePackage{datetime}
 \RequirePackage[protrusion=true,expansion=true,stretch=10,shrink=10,babel,tracking=true]{microtype}
-% \RequirePackage{stmaryrd,textcomp}\def\mathds{\mathbb}%,dsfont}
-% \RequirePackage{MyriadPro}
-% \RequirePackage[fullfamily,textosf,mathlf,minionint,footnotefigures]{MinionPro}
-% \renewcommand\sfdefault{MyriadPro-LF}
-\RequirePackage[garamond]{mathdesign}
-\PassOptionsToPackage{full}{textcomp}
-\RequirePackage{garamondx}
-\renewcommand{\figureversion}[2][1]{}
+\ifminionpro
+	\RequirePackage{stmaryrd,textcomp}\def\mathds{\mathbb}%,dsfont}
+	\RequirePackage{MyriadPro}
+	\RequirePackage[fullfamily,textosf,mathlf,minionint,footnotefigures]{MinionPro}
+	\renewcommand\sfdefault{MyriadPro-LF}
+\else
+	\RequirePackage[garamond]{mathdesign}
+	\PassOptionsToPackage{full}{textcomp}
+	\RequirePackage{garamondx}
+	\renewcommand{\figureversion}[2][1]{}
+\fi
 \RequirePackage{tgcursor}% courier-like
 \def\nohyphenation{\hyphenpenalty=10000\exhyphenpenalty=10000}
 

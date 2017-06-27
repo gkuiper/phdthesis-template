@@ -244,16 +244,21 @@
 %\def\microtypesetup#1{}
 \RequirePackage[T1]{fontenc}
 \RequirePackage{lmodern,stmaryrd,textcomp}\def\mathds{\mathbb}%,dsfont}
-% \RequirePackage{MyriadPro}
-% \RequirePackage[fullfamily,textosf,mathlf,minionint,footnotefigures]{MinionPro}
-% \renewcommand\sfdefault{MyriadPro-LF}
-%\RequirePackage{tgcursor}% courier-like
-%\RequirePackage[scaled=.84]{luximono}% another type writer font
-\PassOptionsToPackage{full}{textcomp}
-\RequirePackage[garamond]{mathdesign}
-\RequirePackage[osf]{garamondx}
-\renewcommand*\copyright{\textcopyright}
-\renewcommand{\figureversion}[2][1]{}
+
+\ifminionpro
+   \RequirePackage{MyriadPro}
+   \RequirePackage[fullfamily,textosf,mathlf,minionint,footnotefigures]{MinionPro}
+   \renewcommand\sfdefault{MyriadPro-LF}
+%   \RequirePackage{tgcursor}% courier-like
+    \RequirePackage[scaled=.84]{luximono}% another type writer font
+\else
+    \PassOptionsToPackage{full}{textcomp}
+    \RequirePackage[garamond]{mathdesign}
+    \RequirePackage[scaled=.84]{luximono}% another type writer font
+    \RequirePackage[osf]{garamondx}
+    \renewcommand*\copyright{\textcopyright}
+    \renewcommand{\figureversion}[2][1]{}
+\fi
 
 \let\oldnormalfont\normalfont
 \def\normalfont{\oldnormalfont\figureversion{text,prop}}
