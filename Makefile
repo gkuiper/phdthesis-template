@@ -162,7 +162,7 @@ SHELL_CMDS += bash make mkdir rm false true $(sed) sort find latexmk git wget pr
 USED_PKGS := $(shell find src texmf/tex/latex -path texmf/tex/latex/acrotex/doc -prune -o \( -iname '*.tex' -o -iname '*.cls' -o -iname '*.sty' \) -exec \
 	grep -i '^[ \t]*\\\(usepackage\|RequirePackage\).*{' {} \; | \
 	$(sed) 's/^[^{[]*\(\[[^]]*\]\)\?{\([^}]*\)}.*$$/\2/;s/,/\n/g' 2>/dev/null | \
-	grep -v '^\\' | sort -u | grep -v CronosPro)
+	grep -v '^\\' | sort -u | grep -v -e CronosPro -e MinionPro -e MyriadPro)
 LATEX_PKGS += fontaxes fltpoint
 
 zon-maan:
