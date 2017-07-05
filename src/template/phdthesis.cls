@@ -583,10 +583,10 @@
 \hideindexmarks
 
 % use in text and add to index
-\newcommand{\ix}[2][]{#2{\edef\ixtext{\ifstrempty{#1}{#2}{#1}}\expandafter\index\expandafter{\ixtext}}}
+\newcommand{\ix}[2][]{#2{\def\ixtext{\ifstrempty{#1}{#2}{#1}}\expandafter\index\expandafter{\ixtext}}}
 % add long acr -> see short acr
 \newcommand*{\ixseeac}[2][]{
-	\edef\ixtext{%
+	\def\ixtext{%
 		\ifstrempty{#1}{%
 			\glsentrylong{#2}@\acl{#2}|see\string{\acs{#2}\string}%
 		}{%
@@ -599,7 +599,7 @@
 \newcommand*{\acix}[2][]{%
 	\ifglsused{#2}{%
 		% used before, add index
-		\edef\ixtext{\ifstrempty{#1}{\glsentryshort{#2}@\acronymfont{\glsentryshort{#2}}}{#1}}\expandafter\ix\expandafter[\ixtext]{\ac{#2}}%
+		\def\ixtext{\ifstrempty{#1}{\glsentryshort{#2}@\acronymfont{\glsentryshort{#2}}}{#1}}\expandafter\ix\expandafter[\ixtext]{\ac{#2}}%
 	}{%
 		% not used before, this will trigger the full format, which adds the index automatically
 		\ac{#2}%
@@ -608,15 +608,15 @@
 % add a sub-entry to an index entry, which was previously added to the index using \acix
 % \subacix[optional formatting of subentry]{identifier of previously used \acix{...} parent entry}{subentry text}
 \newcommand*{\subacix}[3][]{%
-	\edef\ixtext{\glsentryshort{#2}@\acronymfont{\glsentryshort{#2}}!\ifstrempty{#1}{#3}{#1}}%
+	\def\ixtext{\glsentryshort{#2}@\acronymfont{\glsentryshort{#2}}!\ifstrempty{#1}{#3}{#1}}%
 	\expandafter\ix\expandafter[\ixtext]{#3}%
 }
-\newcommand*{\acpix}[2][]{\edef\ixtext{\ifstrempty{#1}{\glsentryshort{#2}@\acronymfont{\glsentryshort{#2}}}{#1}}\expandafter\ix\expandafter[\ixtext]{\acp{#2}}}
-\newcommand*{\acfix}[2][]{\edef\ixtext{\ifstrempty{#1}{\glsentryshort{#2}@\acronymfont{\glsentryshort{#2}}}{#1}}\expandafter\ix\expandafter[\ixtext]{\acf{#2}}}
-\newcommand*{\aclix}[2][]{\edef\ixtext{\ifstrempty{#1}{\glsentryshort{#2}@\acronymfont{\glsentryshort{#2}}}{#1}}\expandafter\ix\expandafter[\ixtext]{\acl{#2}}}
-\newcommand*{\aclpix}[2][]{\edef\ixtext{\ifstrempty{#1}{\glsentryshort{#2}@\acronymfont{\glsentryshort{#2}}}{#1}}\expandafter\ix\expandafter[\ixtext]{\aclp{#2}}}
-\newcommand*{\acsix}[2][]{\edef\ixtext{\ifstrempty{#1}{\glsentryshort{#2}@\acronymfont{\glsentryshort{#2}}}{#1}}\expandafter\ix\expandafter[\ixtext]{\acs{#2}}}
-\newcommand*{\acspix}[2][]{\edef\ixtext{\ifstrempty{#1}{\glsentryshort{#2}@\acronymfont{\glsentryshort{#2}}}{#1}}\expandafter\ix\expandafter[\ixtext]{\acsp{#2}}}
+\newcommand*{\acpix}[2][]{\def\ixtext{\ifstrempty{#1}{\glsentryshort{#2}@\acronymfont{\glsentryshort{#2}}}{#1}}\expandafter\ix\expandafter[\ixtext]{\acp{#2}}}
+\newcommand*{\acfix}[2][]{\def\ixtext{\ifstrempty{#1}{\glsentryshort{#2}@\acronymfont{\glsentryshort{#2}}}{#1}}\expandafter\ix\expandafter[\ixtext]{\acf{#2}}}
+\newcommand*{\aclix}[2][]{\def\ixtext{\ifstrempty{#1}{\glsentryshort{#2}@\acronymfont{\glsentryshort{#2}}}{#1}}\expandafter\ix\expandafter[\ixtext]{\acl{#2}}}
+\newcommand*{\aclpix}[2][]{\def\ixtext{\ifstrempty{#1}{\glsentryshort{#2}@\acronymfont{\glsentryshort{#2}}}{#1}}\expandafter\ix\expandafter[\ixtext]{\aclp{#2}}}
+\newcommand*{\acsix}[2][]{\def\ixtext{\ifstrempty{#1}{\glsentryshort{#2}@\acronymfont{\glsentryshort{#2}}}{#1}}\expandafter\ix\expandafter[\ixtext]{\acs{#2}}}
+\newcommand*{\acspix}[2][]{\def\ixtext{\ifstrempty{#1}{\glsentryshort{#2}@\acronymfont{\glsentryshort{#2}}}{#1}}\expandafter\ix\expandafter[\ixtext]{\acsp{#2}}}
 
 \newcommand{\indexheading}[1]{\vspace{0pt \@plus 2.5em}\parbox{.7639\linewidth}{\centering\normalsize\bfseries\color{nicegray}#1}\nopagebreak\vspace{1ex plus .5ex minus .25ex}\small}
 \newcommand{\keyinsight}[1]{\index{key insight}\emph{#1}\xspace}

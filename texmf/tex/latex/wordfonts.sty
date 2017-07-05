@@ -131,8 +131,8 @@
 }
 
 % using \acF will make the capitals in the short text a bit smaller, but prohibits using \Gls, \GLS and friends.
-\renewcommand*{\acronymfont}[1]{\texorplainstring{\acF{#1}}{#1}}
-\robustify{\acronymfont}
+% \renewcommand*{\acronymfont}[1]{\texorplainstring{\acF{#1}}{#1}}
+% \robustify{\acronymfont}
 \renewcommand*{\acrpluralsuffix}{\acFl{s}}
 \renewcommand{\Ac}[1]{\ac{#1}}
 \renewcommand{\Acp}[1]{\acp{#1}}
