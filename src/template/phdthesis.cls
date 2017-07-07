@@ -405,7 +405,8 @@
 %%
 \RequirePackage{needspace}
 \let\printglossary\relax
-\RequirePackage[toc,acronym,smallcaps,nonumberlist,hyperfirst=false,shortcuts]{glossaries}
+\RequirePackage[toc,acronym,smallcaps,hyperfirst=false,shortcuts,symbols]{glossaries}
+\RequirePackage{glossaries-extra}
 \RequirePackage{wordfonts}
 
 \newcommand{\ndim}[1]{{\figureversion{text,prop}#1\textsc{d}}}
@@ -430,6 +431,8 @@
 	}{}
 }
 \setglossarystyle{mylistgroup}
+
+\glssetcategoryattribute{symbol}{indexonlyfirst}{true}
 
 %\renewcommand{\glspostdescription}{}
 
@@ -1123,9 +1126,18 @@
 \newcommand\listofacronyms{{%
 	\ifabstractonly\else
 		\microtypesetup{protrusion=false}%
-		\printglossaries
+% 		\printglossary[type=abbreviations]
+		\printglossary[type=\acronymtype]
 	\fi
 }}
+
+\newcommand\listofsymbols{{%
+	\ifabstractonly\else
+		\microtypesetup{protrusion=false}%
+		\printglossary[type=symbols, style=long3colheader]
+	\fi
+}}
+
 \newcommand\listofreferences{{%
 	\ifabstractonly\else
 		\setbabelwidth{000}

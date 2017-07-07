@@ -27,17 +27,15 @@ $ENV{'TEXMFCONFIG'} = "$ENV{PWD}/texmf";
 #system("updmap");
 
 # Make glossaries
-add_cus_dep('glo', 'gls', 0, 'makeglo2gls');
-sub makeglo2gls {
-    system("makeindex -s '$_[0]'.ist -t '$_[0]'.glg -o '$_[0]'.gls '$_[0]'.glo");
-}
-add_cus_dep('acn', 'acr', 0, 'makeacn2acr');
-sub makeacn2acr {
-	system("makeindex -s '$_[0]'.ist -t '$_[0]'.alg -o '$_[0]'.acr '$_[0]'.acn");
-}
-add_cus_dep('acr', 'acn', 0, 'makeacr2acn');
-sub makeacr2acn {
-	system("makeindex -s '$_[0]'.ist -t '$_[0]'.alg -o '$_[0]'.acn '$_[0]'.acr");
+add_cus_dep('glo', 'gls', 0, 'run_makeglossaries');
+add_cus_dep('acn', 'acr', 0, 'run_makeglossaries');
+sub run_makeglossaries {
+  if ( $silent ) {
+    system "makeglossaries -q '$_[0]'";
+  }
+  else {
+    system "makeglossaries '$_[0]'";
+  };
 }
 
 push @generated_exts, 'glo';
