@@ -8,7 +8,7 @@
 
 \newacronym[user1={hardware component}]{FPGA}{FPGA}{field-programmable gate array}
 
-\newacronym{DVI}{DVI}{digital visual interface}
+\newacronym[user1={test}]{DVI}{DVI}{digital visual interface}
 \newacronym{UART}{UART}{universal asynchronous receiver/transmitter}
 \newacronym{USB}{USB}{universal serial bus}
 
@@ -31,28 +31,20 @@
 
 \newcommand{\resetacr}{
 	\glsresetall
-	\glsunset{DDR}
-	\glsunset{DRAM}
-	\glsunset{DVI}
-	\glsunset{OIL}
-	\glsunset{RAM}
-	\glsunset{SDRAM}
-	\glsunset{SRAM}
-	\glsunset{UART}
-	\glsunset{USB}
+    %\glsunsetall[\acronymtype]%enable to not display long (short) for first use
 }
 \resetacr
 
-\acrfixed{Starburst}{}{}{Starburst}
-\acrfixed{Helix}{}{}{Helix}
-\acrfixed{Warpfield}{}{}{Warpfield}
+%\acrfixed{Starburst}{}{}{Starburst}
+%\acrfixed{Helix}{}{}{Helix}
+%\acrfixed{Warpfield}{}{}{Warpfield}
 \hyphenation{Star-burst}
 
-\acrfixed{MicroBlaze}{}{}{MicroBlaze}
-\acrfixed{MicroBlazes}{}{MicroBlaze}{MicroBlazes}
+%\acrfixed{MicroBlaze}{}{}{MicroBlaze}
+%\acrfixed{MicroBlazes}{}{MicroBlaze}{MicroBlazes}
 \hyphenation{Micro-Blaze Micro-Blazes}
 
 %\hyphenation{su-per-cal-ifrag-ilis-tic-ex-pi-ali-do-cious}
 
-\acrfixed{xSixtyFour}{}{}{x86-64}% or x86_64, AMD64, x64, EM64T, IA-32e
-\acrfixed{ourVirtex}{}{}{Virtex-6 \noac{LX240-T} \ac{FPGA}}
+%\acrfixed{xSixtyFour}{}{}{x86-64}% or x86_64, AMD64, x64, EM64T, IA-32e
+%\acrfixed{ourVirtex}{}{}{Virtex-6 \noac{LX240-T} \ac{FPGA}}

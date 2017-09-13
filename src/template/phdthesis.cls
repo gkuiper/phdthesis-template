@@ -407,6 +407,9 @@
 \let\printglossary\relax
 \RequirePackage[toc,acronym,smallcaps,hyperfirst=false,shortcuts,symbols]{glossaries}
 \RequirePackage{glossaries-extra}
+\providecommand{\glsabbvfont}{\glsabbrvfont}% patch for pre 1.15
+\setabbreviationstyle[acronym]{long-short}
+\glssetcategoryattribute{symbol}{indexonlyfirst}{true}
 \RequirePackage{wordfonts}
 
 \newcommand{\ndim}[1]{{\figureversion{text,prop}#1\textsc{d}}}
@@ -432,7 +435,6 @@
 }
 \setglossarystyle{mylistgroup}
 
-\glssetcategoryattribute{symbol}{indexonlyfirst}{true}
 
 %\renewcommand{\glspostdescription}{}
 
@@ -451,7 +453,7 @@
 %                only named=true,
 %				mode=convert with system call]% activate!
 \ifdigital
-	\usepgfplotslibrary{clickable}
+	%\usepgfplotslibrary{clickable}
 	\pgfplotsset{
 		every axis/.append style={
 			clickable coords,

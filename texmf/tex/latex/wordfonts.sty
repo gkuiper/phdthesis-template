@@ -137,35 +137,35 @@
 \renewcommand{\Ac}[1]{\ac{#1}}
 \renewcommand{\Acp}[1]{\acp{#1}}
 \newcommand{\hyperbold}[1]{\textbf{\hyperpage{#1}}}
-\ifdef{\defglsentryfmt}{
-	% TeXLive >=2013
-	\AtBeginDocument{%
-		\defglsentryfmt[\acronymtype]{%
-			\ifdefempty{\glscustomtext}{%
-				\ifglsused{\glslabel}{%
-					\acronymfont{\glsgenentryfmt}%
-				}{%
-					\begingroup\glsgenentryfmt\endgroup%
-					\space \emph{(\ix[\glsentrysymbol{\glslabel}@%
-						\glsifplural{\acronymfont{\glsentrysymbolplural{\glslabel}}}%
-									{\acronymfont{\glsentrysymbol{\glslabel}}}|hyperbold]{%
-						\acronymfont{\glsifplural\glsentrysymbolplural\glsentrysymbol{\glslabel}}})}%
-				}%
-			}{%
-				\glsgenentryfmt%
-			}%
-		}%
-		\renewcommand*{\glstextformat}[1]{\fixedspaceword{#1}}%
-	}
-}{
-	% TeXLive <=2012
-	\ifdef{\defglsdisplayfirst}{
-		\AtBeginDocument{%
-			\defglsdisplayfirst[\acronymtype]{#1#4 \emph{(\ix[#3@\acronymfont{#3}|hyperbold]{\acronymfont{#3}})}}%
-			\renewcommand*{\glstextformat}[1]{\fixedspaceword{#1}}%
-		}
-	}{}
-}
+% \ifdef{\defglsentryfmt}{
+% 	% TeXLive >=2013
+% 	\AtBeginDocument{%
+% 		\defglsentryfmt[\acronymtype]{%
+% 			\ifdefempty{\glscustomtext}{%
+% 				\ifglsused{\glslabel}{%
+% 					\acronymfont{\glsgenentryfmt}%
+% 				}{%
+% 					\begingroup\glsgenentryfmt\endgroup%
+% 					\space \emph{(\ix[\glsentrysymbol{\glslabel}@%
+% 						\glsifplural{\acronymfont{\glsentrysymbolplural{\glslabel}}}%
+% 									{\acronymfont{\glsentrysymbol{\glslabel}}}|hyperbold]{%
+% 						\acronymfont{\glsifplural\glsentrysymbolplural\glsentrysymbol{\glslabel}}})}%
+% 				}%
+% 			}{%
+% 				\glsgenentryfmt%
+% 			}%
+% 		}%
+% 		\renewcommand*{\glstextformat}[1]{\fixedspaceword{#1}}%
+% 	}
+% }{
+% 	% TeXLive <=2012
+% 	\ifdef{\defglsdisplayfirst}{
+% 		\AtBeginDocument{%
+% 			\defglsdisplayfirst[\acronymtype]{#1#4 \emph{(\ix[#3@\acronymfont{#3}|hyperbold]{\acronymfont{#3}})}}%
+% 			\renewcommand*{\glstextformat}[1]{\fixedspaceword{#1}}%
+% 		}
+% 	}{}
+% }
 
 % like \ac{}, but without being in the glossaries, for once-only usage, without long description
 \newcommand{\noac}[1]{\acronymfont{#1}}
