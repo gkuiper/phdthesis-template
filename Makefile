@@ -104,6 +104,14 @@ clearaux:
 
 GARBAGE += $(addsuffix /*.aux,. src/front src/body src/back)
 
+onlyN-%: discussion | src/body/%_*.tex
+	@{ \
+		echo '\includeonly{src/body/$(basename $(notdir $|))}\PassOptionsToClass{discussion,singlechap,digital}{src/template/phdthesis}'; \
+		echo '\makeatletter\expandafter\xdef\csname thesis-$<@idxfile\endcsname{\@nameuse{\jobname @idxfile}}\makeatother'; \
+		echo '\input{thesis}'; \
+	} > thesis-only.tex
+	latexmk -pvc thesis-only
+
 only-%: discussion | src/body/%.tex
 	@{ \
 		echo '\includeonly{src/body/$*}\PassOptionsToClass{discussion,singlechap,digital}{src/template/phdthesis}'; \
