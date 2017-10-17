@@ -12,4 +12,4 @@ before_cache:
   - git ls-files texmf/ | xargs rm
 
 script:
-  - docker run -it -v $(pwd):/data guusk/docker-latex-thesis:2016 bash -c "make fonts acrotex all"
+  - docker run -it -v $(pwd):/data guusk/docker-latex-thesis:2016 bash -c "make fonts all"
