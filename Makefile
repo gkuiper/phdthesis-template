@@ -166,7 +166,7 @@ shellcmd = $(call checking,$(1));				which '$(1)' || { echo 'NOT FOUND! $(2)'; f
 latexpkg = $(call checking,LaTeX package $(1));	$(TEXENV) kpsewhich '$(1).sty' || { echo 'NOT FOUND! $(2)'; false; };
 latexcls = $(call checking,LaTeX class $(1));	$(TEXENV) kpsewhich '$(1).cls' || { echo 'NOT FOUND! $(2)'; false; };
 
-SHELL_CMDS += bash make mkdir rm false true $(sed) sort find latexmk git wget printf gawk tex pdflatex kpsewhich g++ $(readlink) tee pdftotext date pwd echo uname convert texhash updmap gnuplot gs fmtutil basename md5sum unzip
+SHELL_CMDS += bash make mkdir rm false true $(sed) sort find latexmk git wget printf gawk tex pdflatex kpsewhich g++ $(readlink) tee pdftotext date pwd echo uname convert texhash updmap-sys gnuplot gs fmtutil basename md5sum unzip
 USED_PKGS := $(shell find src texmf/tex/latex -path texmf/tex/latex/acrotex/doc -prune -o \( -iname '*.tex' -o -iname '*.cls' -o -iname '*.sty' \) -exec \
 	grep -i '^[ \t]*\\\(usepackage\|RequirePackage\).*{' {} \; | \
 	$(sed) 's/^[^{[]*\(\[[^]]*\]\)\?{\([^}]*\)}.*$$/\2/;s/,/\n/g' 2>/dev/null | \
@@ -213,7 +213,7 @@ zon-maan:
 .PHONY: texenv
 texenv:
 	@$(TEXENV) texhash texmf
-	@$(TEXENV) updmap-user
+	@$(TEXENV) updmap-sys
 
 
 ################################
@@ -235,7 +235,7 @@ font-%: | texmf/FontPro
 	cd texmf/FontPro && scripts/makeall $* --nocyrillic --novietnamese --expanded
 	i="`$(readlink) -f texmf`"; cd texmf/FontPro && scripts/install "$$i" <<< 'y'
 	cd texmf/FontPro && scripts/clean
-	$(TEXENV) cd texmf && updmap --enable Map=$*.map
+	$(TEXENV) cd texmf && updmap-sys --enable Map=$*.map
 	@$(BUILD_TIME)
 
 .PHONY: getnonfreefonts luximono luximono-install garamond garamond-install
