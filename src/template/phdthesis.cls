@@ -393,7 +393,7 @@
 	%citebordercolor={0.5 0.5 1}
 }
 
-\newcommand*{\doi}[1]{\href{http://dx.doi.org/\detokenize{#1}}{doi: \detokenize{#1}}}
+\newcommand*{\doi}[1]{\href{https://doi.org/\detokenize{#1}}{doi: \detokenize{#1}}}
 
 %% ?
 \let\figref\fref % use \figref for memoirs \fref
